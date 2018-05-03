@@ -1,0 +1,89 @@
+<gexf xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.gephi.org/gexf/1.1draft" xmlns:ns0="xsi" version="1.1" ns0:schemaLocation="http://www.gephi.org/gexf/1.1draft http://gephi.org/gexf/1.1draft.xsd">
+  <meta lastmodified="2018-05-01T17:06:25.493711">
+    <creator>NJFE_wlw</creator>
+    <description>A traceability network</description>
+  </meta>
+  <graph defaultedgetype="directed" label="Back or Foward traceability" mode="static">
+    <attributes class="node" mode="dynamic"/>
+    <attributes class="node" mode="static">
+      <attribute id="0" title="commodity_name" type="string">
+        <default></default>
+      </attribute>
+      <attribute id="1" title="time" type="string">
+        <default></default>
+      </attribute>
+      <attribute id="2" title="nodename" type="string">
+        <default></default>
+      </attribute>
+      <attribute id="nodetype" title="nodetype" type="string">
+        <default></default>
+      </attribute>
+    </attributes>
+    <attributes class="edge" mode="dynamic"/>
+    <attributes class="edge" mode="static"/>
+    <nodes>
+      <node id="s_0" label="suppliers_0">
+        <attvalues>
+          <attvalue for="0" value="J三宁硫基复合肥"/>
+          <attvalue for="1" value="2017-12-31"/>
+          <attvalue for="nodetype" value="supplier"/>
+        </attvalues>
+      </node>
+      <node id="R_1" label="Repertory">
+        <attvalues>
+          <attvalue for="nodetype" value="repetory"/>
+          <attvalue for="2" value="太仓分公司总仓"/>
+        </attvalues>
+      </node>
+      <node id="c_1" label="consumer_1">
+        <attvalues>
+          <attvalue for="0" value="J三宁硫基复合肥"/>
+          <attvalue for="1" value="(2018-01-01 10:43:35)"/>
+          <attvalue for="2" value="consumer_1"/>
+          <attvalue for="nodetype" value="consumer"/>
+        </attvalues>
+      </node>
+      <node id="c_0" label="consumer_0">
+        <attvalues>
+          <attvalue for="0" value="J三宁硫基复合肥"/>
+          <attvalue for="1" value="(2018-01-01 11:19:33)"/>
+          <attvalue for="2" value="consumer_0"/>
+          <attvalue for="nodetype" value="consumer"/>
+        </attvalues>
+      </node>
+      <node id="c_3" label="consumer_3">
+        <attvalues>
+          <attvalue for="0" value="J三宁硫基复合肥"/>
+          <attvalue for="1" value="(2018-04-05 10:38:44)"/>
+          <attvalue for="2" value="consumer_3"/>
+          <attvalue for="nodetype" value="consumer"/>
+        </attvalues>
+      </node>
+      <node id="c_2" label="consumer_2">
+        <attvalues>
+          <attvalue for="0" value="J三宁硫基复合肥"/>
+          <attvalue for="1" value="(2018-04-05 10:54:12)"/>
+          <attvalue for="2" value="consumer_2"/>
+          <attvalue for="nodetype" value="consumer"/>
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="1" source="R_1" target="c_0" weight="1">
+        <attvalues/>
+      </edge>
+      <edge id="0" source="s_0" target="R_1" weight="1">
+        <attvalues/>
+      </edge>
+      <edge id="3" source="R_1" target="c_2" weight="1">
+        <attvalues/>
+      </edge>
+      <edge id="2" source="R_1" target="c_1" weight="1">
+        <attvalues/>
+      </edge>
+      <edge id="4" source="R_1" target="c_3" weight="1">
+        <attvalues/>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

@@ -1,0 +1,10 @@
+<div class="col-md-8 col-sm-8 col-xs-12">
+        <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>溯源系统</h2>
+            </div>
+            <div id="echarts_main2" style="width: 600px;height:400px;"></div>
+          </div>
+
+        </div>

@@ -1,0 +1,2 @@
+<script type="text/javascript" src="{{ url_for('static', filename='vendors/echarts/dist/extension/dataTool.js') }}">
+  </script> }}"

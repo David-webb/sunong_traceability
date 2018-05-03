@@ -1,0 +1,82 @@
+f ($('#echarts_main2').length) {
+             var myChart = echarts.init(document.getElementById('echarts_main2'));
+             myChart.showLoading();
+             $.get('/static/images/BKTdata.gexf', function (xml) {
+                 myChart.hideLoading();
+
+                 var graph = echarts.dataTool.gexf.parse(xml);
+                 var categories = [];
+                 var categorynames = ["生产厂家", "销售点仓库", "消费者"]
+                 for (var i = 0; i < 3; i++) {
+                     categories[i] = {
+                         name: categorynames[i]
+                     };
+                 }
+
+                 graph.nodes.forEach(function (node) {
+                     node.itemStyle = null;
+                     node.symbolSize = 20;
+                     node.value = node.attributes.nodename;
+                     node.category = node.attributes.nodetype;
+                     console.log("windowsize: ",myChart.getWidth(),myChart.getHeight());
+
+                     // Use random x, y
+                     if (node.category === 0) {
+                        node.x = 100+parseInt(Math.random()*100);
+                        node.y = 150+parseInt(Math.random()*50);
+                     }
+                     else if (node.category === 1){
+                        node.x = 300;
+                        node.y = 200;
+                     }
+                     else if (node.category === 2){
+                        node.x = 400+parseInt(Math.random()*100);
+                        node.y = 150+parseInt(Math.random()*200);
+                     }
+                        node.fixed = true
+//                     node.x = node.y = null;
+//                     console.log("node.x:", node.x, "node.y:", node.y)
+                     node.draggable = false;
+                 });
+                option = {
+
+                    tooltip: {},
+                    legend: [{
+                        // selectedMode: 'single',
+                        data: categories.map(function (a) {
+                            return a.name;
+                        })
+                    }],
+
+                    animation: false,   // 动画
+//                    animationDurationUpdate: 1500,
+//                    animationEasingUpdate: 'quinticInOut',
+                    series : [
+                        {
+                            name: '溯源系统',
+                            type: 'graph',
+                            layout: 'none',
+                            data: graph.nodes,
+                            links: graph.links,
+                            categories: categories,
+                            edgeSymbol: ['circle', 'arrow'],
+                            edgeSymbolSize: [4, 10],
+                            roam: false,
+                            label: {
+                                normal: {
+                                    position: 'right',
+                                    show:true
+                                }
+                            },
+                            force: {
+                                repulsion: 20000
+                            }
+                        }
+                    ]
+            };
+
+            myChart.setOption(option);
+        }, 'xml');
+
+            }
+
